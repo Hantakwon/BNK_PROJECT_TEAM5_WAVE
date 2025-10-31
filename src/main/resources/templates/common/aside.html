@@ -1,0 +1,23 @@
+<aside th:fragment="aside">
+    <link rel="stylesheet" th:href="@{/css/common/aside.css}">
+    <div id="aside-container">
+        <ul>
+            <a th:href="@{#}" class="menu-title">QnA</a>
+            <ul class="submenu">
+                <li><a th:href="@{/qna/list}">QnA목록</a></li>
+            </ul>
+            <a th:href="@{#}" class="menu-title">FAQ</a>
+            <ul class="submenu">
+                <li><a th:href="@{/faq/list}">FAQ목록</a></li>
+            </ul>
+            <a th:href="@{#}" class="menu-title">고객센터</a>
+            <ul class="submenu">
+                <li><a th:href="@{#}">고객상담</a></li>
+                <li><a th:href="@{#}">이용안내</a></li>
+                <li><a th:href="@{#}">금융소비자보호</a></li>
+                <li><a th:href="@{#}">상품공시실</a></li>
+                <li><a th:href="@{#}">서식/약관/자료실</a></li>
+            </ul>
+        </ul>
+    </div>
+</aside>

@@ -1,4 +1,4 @@
-package kr.co.wave.controller.qna;/*
+package kr.co.wave.controller.cs.qna;/*
 package kr.co.draft.controller.qna;
 
 import kr.co.draft.service.QnAService;

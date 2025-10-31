@@ -16,27 +16,34 @@
             <div class="space" th:each="terms : ${termsList}">
                 <h3>[[${terms.category}]]</h3>
                 <p class="description">[[${terms.title}]]입니다.</p>
-                <form th:action="@{#}" method="post">
+                <form th:action="@{/admin/config/policy/update}" method="post">
+                    <input type="hidden" name="termsId" th:value="${terms.termsId}">
                     <table>
-                        <input type="hidden" th:value="${terms.termsId}">
                         <tr>
                             <td>약관 내용</td>
-                            <td>[[${terms.content}]]</td>
+                            <td>
+                                <textarea name="content" rows="5" cols="80" th:text="${terms.content}"></textarea>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>버전</td>
-                            <td>[[${terms.version}]]</td>
-                        </tr>
-
                         <tr>
                             <td>필수 여부</td>
-                            <td th:text="${terms.isRequired ? '필수' : '선택'}"></td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="required" value="true" th:checked="${terms.isRequired}"> 필수
+                                </label>
+                                <label>
+                                    <input type="radio" name="required" value="false" th:checked="${!terms.isRequired}"> 선택
+                                </label>
+                            </td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="수정"></td>
+                            <td colspan="2" style="text-align:right;">
+                                <input type="submit" value="수정">
+                            </td>
                         </tr>
                     </table>
                 </form>
+                <hr>
             </div>
 
         </div>

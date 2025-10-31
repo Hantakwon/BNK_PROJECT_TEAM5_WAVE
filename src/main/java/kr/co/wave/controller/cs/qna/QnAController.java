@@ -1,4 +1,4 @@
-package kr.co.wave.controller.qna;
+package kr.co.wave.controller.cs.qna;
 
 import kr.co.wave.dto.QnADTO;
 import kr.co.wave.service.QnAService;
@@ -18,15 +18,15 @@ public class QnAController {
     private final QnAService qnAService;
 
     // 아이디로 QnA 자세히 보기
-    @GetMapping("/qna/view/{id}")
+    @GetMapping("/cs/qna/view/{id}")
     public String qnAView(@PathVariable int id, Model model) {
         model.addAttribute("qna", qnAService.getQnAById(id));
 
-        return "qna/view";
+        return "cs/qna/view";
     }
 
     // QnA 목록화면 이동
-    @GetMapping("/qna/list")
+    @GetMapping("/cs/qna/list")
     public String qnAList(@RequestParam(required = false) String searchType,
                           @RequestParam(required = false) String keyword,
                           @RequestParam(defaultValue = "0") int page,
@@ -39,22 +39,22 @@ public class QnAController {
 
         model.addAttribute("qnAList", qnAList);
 
-        return "qna/list";
+        return "cs/qna/list";
     }
 
     // QnA 등록화면 이동
-    @GetMapping("/qna/register")
+    @GetMapping("/cs/qna/register")
     public String qnARegister(Model model) {
 
-        return "qna/register";
+        return "cs/qna/register";
     }
 
     // QnA 등록
-    @PostMapping("/qna/register")
+    @PostMapping("/cs/qna/register")
     public String qnASave(QnADTO qnADTO) {
         qnAService.qnARegister(qnADTO);
 
-        return "redirect:/qna/list";
+        return "redirect:/cs/qna/list";
     }
 
 

@@ -9,7 +9,7 @@ public class BannerConfig {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     // 배너 이미지 파일명 또는 URL
     @Column(nullable = false)

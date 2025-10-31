@@ -1,4 +1,4 @@
-package kr.co.wave.controller.admin;
+package kr.co.wave.controller.cs;
 
 import kr.co.wave.dto.QnADTO;
 import kr.co.wave.service.QnAService;
@@ -11,16 +11,14 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class AdminMainController {
+public class CsController {
 
-    private final QnAService qnaService;
-    @GetMapping({"/admin", "/admin/", "/admin/index"})
-    public String admin(Model model) {
+    private final QnAService qnAService;
 
-        List<QnADTO> qnAList = qnaService.getQnAAll();
-
+    @GetMapping({"/cs", "/cs/", "/cs/index"})
+    public String index(Model model) {
+        List<QnADTO> qnAList = qnAService.getQnAAll();
         model.addAttribute("qnAList", qnAList);
-
-        return "admin/index";
+        return "/cs/index";
     }
 }

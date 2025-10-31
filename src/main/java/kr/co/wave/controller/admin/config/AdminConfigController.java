@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -52,5 +54,14 @@ public class AdminConfigController {
     @GetMapping("/admin/config/version")
     public String adminConfigVersion() {
         return "admin/config/version";
+    }
+
+    // 약관 수정
+    @PostMapping("/admin/config/policy/update")
+    public String adminConfigUpdate(TermsDTO termsDTO) {
+
+        System.out.println(termsDTO);
+        termsService.updateTerms(termsDTO);
+        return "redirect:/admin/config/policy";
     }
 }

@@ -19,11 +19,14 @@ public class BasicConfigService {
 
     @Transactional
     public BasicConfigDTO getBasicConfig() {
-        return new BasicConfigDTO(
+        BasicConfigDTO dto = new BasicConfigDTO(
             siteInfoService.getSiteRecentlyOne(),
             companyInfoService.getCompanyInfoSingle(),
             customerServiceInfoService.getCustomerServiceInfoSingle()
         );
+
+        System.out.println(dto.getCompanyInfo());
+        return dto;
     }
 
     // 설정 업데이트

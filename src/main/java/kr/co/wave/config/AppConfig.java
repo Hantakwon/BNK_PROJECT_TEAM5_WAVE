@@ -7,10 +7,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/uploads/**") // URL로 접근할 때의 경로
+                .addResourceLocations("file:///C:/Users/GGG/Desktop/workspace/spring/wave/uploads/");
+    }
 
     @Bean
     public AppInfoInterceptor appInfoInterceptor(BasicConfigService basicConfigService) {

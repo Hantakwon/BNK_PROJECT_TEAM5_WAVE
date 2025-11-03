@@ -64,4 +64,5 @@ public class AdminConfigController {
         termsService.updateTerms(termsDTO);
         return "redirect:/admin/config/policy";
     }
+
 }

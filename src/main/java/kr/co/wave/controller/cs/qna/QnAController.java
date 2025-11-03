@@ -1,7 +1,7 @@
 package kr.co.wave.controller.cs.qna;
 
 import kr.co.wave.dto.QnADTO;
-import kr.co.wave.service.QnAService;
+import kr.co.wave.service.board.cs.QnAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;

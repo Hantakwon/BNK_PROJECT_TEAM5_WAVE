@@ -79,7 +79,7 @@
                     </thead>
                     <tr th:each="qna, stat : ${qnAList.content}">
                         <td>[[${qnAList.totalElements - (qnAList.number * qnAList.size + stat.index)}]]</a></td>
-                        <td><a th:href="@{/qna/view/{id}(id=${qna.qnaId})}">[[${qna.title}]]</a></td>
+                        <td><a th:href="@{/cs/qna/view/{id}(id=${qna.qnaId})}">[[${qna.title}]]</a></td>
                         <td>[[${qna.writer}]]</td>
                         <td>[[${qna.createdAt}]]</td>
                         <td th:text="${qna.isAnswered ? '답변완료' : '미답변'}"></td>

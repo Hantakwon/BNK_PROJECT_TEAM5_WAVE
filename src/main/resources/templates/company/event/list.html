@@ -14,7 +14,7 @@
         <div id="main-content">
             <!-- 검색 -->
             <div class="search-form">
-                <form method="get" th:action="@{/company/notice/list}">
+                <form method="get" th:action="@{/company/event/list}">
                     <div th:with="st=${param.searchType != null ? param.searchType[0] : ''}">
                         <select name="searchType" id="searchType">
                             <option value="" th:selected="${st == ''}">전체</option>
@@ -42,21 +42,21 @@
                     <th>작성자</th>
                     <th>날짜</th>
                     </thead>
-                    <tr th:each="notice, stat : ${noticeList.getContent()}">
-                        <td>[[${noticeList.totalElements - (noticeList.number * noticeList.size +
+                    <tr th:each="event, stat : ${eventList.content}">
+                        <td>[[${eventList.totalElements - (eventList.number * eventList.size +
                             stat.index)}]]</a></td>
-                        <td><a th:href="@{/company/notice/view/{noticeId}(noticeId=${notice.noticeId})}">[[${notice.title}]]</a>
+                        <td><a th:href="@{/company/event/view/{eventId}(eventId=${event.eventId})}">[[${event.title}]]</a>
                         </td>
-                        <td>[[${notice.writer}]]</td>
-                        <td>[[${notice.createdAt}]]</td>
+                        <td>[[${event.writer}]]</td>
+                        <td>[[${event.createdAt}]]</td>
                     </tr>
                 </table>
-                <a th:href="@{/company/notice/register}">글 쓰기</a>
+                <a th:href="@{/company/event/register}">글 쓰기</a>
             </div>
 
             <!-- 페이징 -->
             <div class="pagination" th:with="
-                page=${noticeList},
+                page=${eventList},
                 now=${page.number},
                 total=${page.totalPages},
                 size=${page.size},

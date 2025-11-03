@@ -1,8 +1,8 @@
-package kr.co.wave.service;
+package kr.co.wave.service.board.cs;
 
 import kr.co.wave.dto.QnADTO;
-import kr.co.wave.entity.QnA;
-import kr.co.wave.repository.QnARepository;
+import kr.co.wave.entity.board.cs.QnA;
+import kr.co.wave.repository.board.cs.QnARepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -56,6 +56,19 @@ public class QnAService {
 
     public void qnARegister(QnADTO qnADTO) {
         qnARepository.save(modelMapper.map(qnADTO, QnA.class));
+    }
+
+    // 최신글 5개 찾아오기
+    public List<QnADTO> getQnARecentlyFive(){
+        List<QnADTO> qnADtoList = new ArrayList<>();
+
+        List<QnA> qnAList = qnARepository.findTop5ByOrderByCreatedAtDesc();
+
+        for (QnA qnA : qnAList) {
+            qnADtoList.add(modelMapper.map(qnA, QnADTO.class));
+        }
+
+        return qnADtoList;
     }
 
 }

@@ -1,4 +1,4 @@
-package kr.co.wave.dto.board;
+package kr.co.wave.dto.board.company;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CompanyNoticeDTO {
+public class EventDTO {
 
-    private int companyNoticeId;
+    private int eventId;
     private String title;
     private String content;
     private String writer;

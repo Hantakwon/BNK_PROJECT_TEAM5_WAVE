@@ -1,4 +1,4 @@
-package kr.co.wave.entity.board;
+package kr.co.wave.entity.board.company;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,13 +13,14 @@ import java.time.LocalDateTime;
 @ToString
 @Builder
 @Entity
-@Table(name = "TB_COMPANY_NOTICE_BOARD")
-public class CompanyNotice {
+@Table(name = "TB_COMPANY_INVERSTORINFO")
+public class InvestorInfo {
 
+    // 은행 소개 - 투자자정보
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="COMPANY_NOTICE_ID")
-        private int companyNoticeId;
+    @Column(name="INVERSTORINFO_ID")
+    private int investorInfoId;
 
     @Column(name="TITLE")
     private String title;

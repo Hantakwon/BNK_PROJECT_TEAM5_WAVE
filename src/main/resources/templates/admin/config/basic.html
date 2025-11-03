@@ -39,20 +39,50 @@
             <div class="space">
                 <h3>로고</h3>
                 <p class="description">브라우저 탭, 헤더 및 푸터 노출 로고입니다.</p>
-                <table>
-                    <tr>
-                        <td>헤더로고</td>
-                        <td><input type="file"></td>
-                    </tr>
-                    <tr>
-                        <td>푸터로고</td>
-                        <td><input type="file"></td>
-                    </tr>
-                    <tr>
-                        <td>파비콘</td>
-                        <td><input type="file"></td>
-                    </tr>
-                </table>
+                <form th:action="@{/admin/config/basic/upload}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="siteId" th:value="${basicConfig.siteInfo.siteId}">
+                    <table>
+                        <tr>
+                            <td>헤더로고</td>
+                            <td>
+                                <input type="file" name="header_logo" accept="image/*">
+                                <!-- 기존 이미지가 있으면 표시 -->
+                                <div th:if="${basicConfig.siteInfo.headerLogo}">
+                                    <img th:src="@{/uploads/{name}(name=${basicConfig.siteInfo.headerLogo})}"
+                                         alt="헤더로고" style="max-width: 200px; margin-top: 10px;">
+                                    <p th:text="${basicConfig.siteInfo.headerLogo}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>푸터로고</td>
+                            <td>
+                                <input type="file" name="footer_logo" accept="image/*">
+                                <div th:if="${basicConfig.siteInfo.headerLogo}">
+                                    <!-- config/ 경로를 포함한 전체 경로 사용 -->
+                                    <img th:src="@{/uploads/{path}(path=${basicConfig.siteInfo.headerLogo})}"
+                                         alt="헤더로고" style="max-width: 200px; margin-top: 10px;">
+                                    <p th:text="${basicConfig.siteInfo.headerLogo}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>파비콘</td>
+                            <td>
+                                <input type="file" name="favicon" accept="image/x-icon,image/png">
+                                <div th:if="${basicConfig.siteInfo.favicon}">
+                                    <img th:src="@{/images/{name}(name=${basicConfig.siteInfo.favicon})}"
+                                         alt="파비콘" style="max-width: 32px; margin-top: 10px;">
+                                    <p th:text="${basicConfig.siteInfo.favicon}"></p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit">저장</button>
+                            </td>
+                        </tr>
+                </form>
             </div>
             <div class="space">
                 <h3>기업정보</h3>

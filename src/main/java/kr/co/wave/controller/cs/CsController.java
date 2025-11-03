@@ -1,7 +1,7 @@
 package kr.co.wave.controller.cs;
 
 import kr.co.wave.dto.QnADTO;
-import kr.co.wave.service.QnAService;
+import kr.co.wave.service.board.cs.QnAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ public class CsController {
 
     @GetMapping({"/cs", "/cs/", "/cs/index"})
     public String index(Model model) {
-        List<QnADTO> qnAList = qnAService.getQnAAll();
+        List<QnADTO> qnAList = qnAService.getQnARecentlyFive();
         model.addAttribute("qnAList", qnAList);
         return "/cs/index";
     }

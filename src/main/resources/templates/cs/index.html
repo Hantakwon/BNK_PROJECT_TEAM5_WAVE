@@ -20,6 +20,22 @@
             <!--
             고객상담, 이용안내, 금융소비자보호, 상품공시실, 서식/약관/자료실 게시판 구현
             -->
+            <div class="board">
+                <h1>고객 상담</h1>
+                <a th:href="@{/cs/qna/list}">더보기 > </a>
+                <table>
+                    <thead>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>날짜</td>
+                    </thead>
+                    <tr th:each="qna : ${qnAList}">
+                        <td><a th:href="@{/cs/qna/view/{id}(id=${qna.qnaId})}">[[${qna.title}]]</a></td>
+                        <td>[[${qna.writer}]]</td>
+                        <td>[[${qna.createdAt}]]</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </main>

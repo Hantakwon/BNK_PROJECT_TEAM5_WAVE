@@ -1,4 +1,4 @@
-package kr.co.wave.entity.board;
+package kr.co.wave.entity.board.cs;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,14 +13,13 @@ import java.time.LocalDateTime;
 @ToString
 @Builder
 @Entity
-@Table(name = "TB_MAIN_ETC")
-public class MainEtc {
+@Table(name = "TB_QNA")
+public class QnA {
 
-    // 기타
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ETC_ID")
-    private int etcId;
+    @Column(name="QNA_ID")
+    private int qnaId;
 
     @Column(name="TITLE")
     private String title;
@@ -34,4 +33,7 @@ public class MainEtc {
     @CreationTimestamp
     @Column(name="CREATED_AT")
     private LocalDateTime createdAt;
+
+    @Column(name="IS_ANSWERED")
+    private boolean isAnswered;
 }

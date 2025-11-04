@@ -25,7 +25,6 @@ public class BasicConfigService {
             customerServiceInfoService.getCustomerServiceInfoSingle()
         );
 
-        System.out.println(dto.getCompanyInfo());
         return dto;
     }
 

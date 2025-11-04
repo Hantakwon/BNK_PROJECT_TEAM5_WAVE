@@ -45,35 +45,35 @@
                         <tr>
                             <td>헤더로고</td>
                             <td>
-                                <input type="file" name="header_logo" accept="image/*">
                                 <!-- 기존 이미지가 있으면 표시 -->
                                 <div th:if="${basicConfig.siteInfo.headerLogo}">
+                                    <p>현재 이미지 :</p>
                                     <img th:src="@{/uploads/{name}(name=${basicConfig.siteInfo.headerLogo})}"
-                                         alt="헤더로고" style="max-width: 200px; margin-top: 10px;">
-                                    <p th:text="${basicConfig.siteInfo.headerLogo}"></p>
+                                         alt="헤더로고" style="max-width: 200px;">
                                 </div>
+                                <input type="file" name="header_logo" accept="image/*">
                             </td>
                         </tr>
                         <tr>
                             <td>푸터로고</td>
                             <td>
-                                <input type="file" name="footer_logo" accept="image/*">
                                 <div th:if="${basicConfig.siteInfo.footerLogo}">
+                                    <p>현재 이미지 :</p>
                                     <img th:src="@{/uploads/{name}(name=${basicConfig.siteInfo.footerLogo})}"
-                                         alt="헤더로고" style="max-width: 200px; margin-top: 10px;">
-                                    <p th:text="${basicConfig.siteInfo.footerLogo}"></p>
+                                         alt="헤더로고" style="max-width: 200px;">
                                 </div>
+                                <input type="file" name="footer_logo" accept="image/*">
                             </td>
                         </tr>
                         <tr>
                             <td>파비콘</td>
                             <td>
-                                <input type="file" name="favicon" accept="image/x-icon,image/png">
                                 <div th:if="${basicConfig.siteInfo.favicon}">
+                                    <p>현재 이미지 :</p>
                                     <img th:src="@{/uploads/{name}(name=${basicConfig.siteInfo.favicon})}"
-                                         alt="헤더로고" style="max-width: 200px; margin-top: 10px;">
-                                    <p th:text="${basicConfig.siteInfo.favicon}"></p>
+                                         alt="헤더로고" style="max-width: 200px;">
                                 </div>
+                                <input type="file" name="favicon" accept="image/*">
                             </td>
                         </tr>
                         <tr>

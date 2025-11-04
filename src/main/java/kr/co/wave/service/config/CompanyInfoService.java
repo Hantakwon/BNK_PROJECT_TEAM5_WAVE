@@ -19,12 +19,7 @@ public class CompanyInfoService {
         CompanyInfo companyInfo = companyInfoRepository.findCompanyInfoSingle()
                 .orElseThrow(() -> new EntityNotFoundException("회사 정보가 존재하지 않습니다."));
 
-        CompanyInfoDTO companyInfoDTO = modelMapper.map(companyInfo, CompanyInfoDTO.class);
-
-        System.out.println("확인용 : " + companyInfoDTO);
-        System.out.println("확인용 : " + companyInfoDTO.getCompanyId());
-
-        return companyInfoDTO;
+        return modelMapper.map(companyInfo, CompanyInfoDTO.class);
     }
 
     public void updateCompanyInfo(CompanyInfoDTO companyInfoDTO){

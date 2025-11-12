@@ -1,8 +1,8 @@
 package kr.co.wave.service;
 
 import kr.co.wave.dto.MemberDTO;
-import kr.co.wave.entity.Member;
-import kr.co.wave.repository.MemberRepository;
+import kr.co.wave.entity.member.Member;
+import kr.co.wave.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

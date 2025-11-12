@@ -1,6 +1,6 @@
 package kr.co.wave.security;
 
-import kr.co.wave.entity.Member;
+import kr.co.wave.entity.member.Member;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
